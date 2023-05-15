@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+*{margin: 0; padding: 0;}
+
+body{background-color: #FEFCF3;}
+
+.box1{
+    background-color: #F5EBE0;
+}
+.box1 .child{
+    font-size: 30px;
+    font-weight: bold;
+    width: 300px;
+    background-color: #F0DBDB;
+    margin: 30px auto; /* //마진 병합 현상 */
+    text-align: center;
+    border: 10px solid #F0DBDB;
+    border-radius: 10px;
+    color: #FEFCF3;
+    /* transition-property: transform;
+    transition-duration: 0.3s;
+    transition-delay: 0.5s;
+    transition-timing-function:cubic-bezier(0.8, -0.04, 0.41, 1.79); */
+
+    /* transition: transform 0.3s cubic-bezier(0.8, -0.04, 0.41, 1.79) 0.5s; */
+
+    /* transition: transform 0.3s, background-color 0.5s, color 0.3s,0.5s */
+
+    /* transition: all 0.3s; = transition: 0.3s; */
+
+    transition: transform 0.3s, background-color 0.5s, color 0.3s,0.5s; /* 뒤에 있는 건 딜레이값 */
+}
+.box1:hover .child{
+    transform: translateY(-30px);
+    background-color: #DBA39A;
+    color: #FEFCF3;
+}
+
+.box2{ width: 400px;
+    font-size: 30px;
+    color: #FEFCF3;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #F0DBDB;
+    overflow: hidden;
+    }
+    .box2>div{
+        transform: translateX(-100%);
+        transition: 0.5s cubic-bezier(0.03, 0.75, 0.51, 1.48);;
+    }
+    .box2:hover>div{transform: translateX(0);}
+    .box2 .one{
+        transition-delay: 0.3s
+    }
+    .box2 .two{
+        transition-delay: 0.6s
+    }
+    .box2 .three{
+        transition-delay: 0.9s
+    }
+
+    .box3{
+        width: 100px;
+        height: 100px;
+        background-color: #F0DBDB;
+        text-align: center;
+        line-height: 100px;
+        color: #FEFCF3;
+        animation-name: box_ani;
+        /* ㄴ애니메이션 이름(keyframes의 name과 동일해야함) */
+        animation-duration: 1s;
+        /* ㄴ애니메이션 움직임 지속시간 second의 약자 */
+        animation-iteration-count: 3 /* infinite */;
+        /* ㄴ애니메이션 반복횟수(숫자)/무한반복 infinite */
+        animation-direction: normal;
+        /* ㄴanimation-direction(애니메이션의 방향)
+          normal이 기본값
+          alternate 정방향 - 역방향 번갈아 가면서 나옴
+          alternate-reverse 역방향 - 정방향 순서가 반대로 번갈아나옴 
+          reverse 반대로 행동함
+          */
+        animation-delay: 1s;
+        /* ㄴ애니메이션 지연시간 */
+        animation-timing-function: ease;
+       /*  ㄴ애니메이션 이징 가속도
+          처음에 animation-timing-function: ease 적은 후
+          개발자 모드로 들어가서 조정 후 cubic-bezier 를
+          복사 붙여넣기 */
+        animation-fill-mode: both;
+        /* ㄴ 애니메이션의 시작전과 끝후의 상태조절
+        forwards - 애니메이션이 끝난 상태에서 멈춤
+        backwards - 애니메이션의 시작을 keyframes의 0%인 상태부터 시작 
+        both - forwards + backwards
+        */
+    }
+
+/* 애니메이션움직임 제어 */
+ @keyframes box_ani{
+    /* 시작지점 */
+    from{
+        margin-left: 300px;
+    }
+    /* 도착지점 */
+    to{
+        margin-left: 800px;
+    }
+}
+
+.box4{
+    width: 100px;
+    height: 100px;
+    background-color: #F0DBDB;
+    text-align: center;
+    line-height: 100px;
+    color: #FEFCF3;
+    animation: box_ani2 4s ease-in-out 1s 3 both;
+    /* animation: name duration timing-function(ease) delay iteration-count direction fill-mode; */
+}
+
+@keyframes box_ani2{
+    0%{transform: translate(0px,0px);}
+    25%{transform: translate(200px,0px);}
+    50%{transform: translate(200px,200px);}
+    75%{transform: translate(0px,200px);}
+    100%{transform: translate(0px,0px);}
+}

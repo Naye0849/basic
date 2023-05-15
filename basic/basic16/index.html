@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one_sign+div{ /* + 바로 밑 동생 */
+            background-color:antiquewhite;}
+        .one_sign~div{/* ~ one_sign 밑에 동생들 */
+            text-decoration: underline;
+        }
+        .wrap div:not(:last-child){/* ()의 내용을 제외 */
+            color: red;
+        }
+        .wrap div:not([class="sign"]){/* ([])의 내용을 제외 */
+            text-align: center;
+        }
+
+
+        /* /////////////////////////////// */
+        .wrap div[class^="sign"]{ /* '^' 클래스명 중 ~로 시작한 것 */
+            color:blue;
+        }
+        .wrap div[class$="sign"]{/* '$' 클래스명 중 ~로 끝난 것 */
+			border: 1px solid green;
+		}
+
+        .wrap div[class*="sign"]{/* '*' 어디든 클래스명 ~가 있으면 적용 */
+			border: 1px solid orange;
+		}
+
+        .wrap div[class~="sign"]{ /*온전한 단어가 적힌 것만 포함*/
+			border: 1px solid rgb(197, 116, 255);
+		}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="sign">sign</div>
+        <div class="sign_one">sign_one</div>
+        <div class="one_sign">one_sign</div>
+        <div class="onesignone">onesignone</div>
+        <div class="two_sign">two_sign</div>
+    </div>
+</body>
+</html>

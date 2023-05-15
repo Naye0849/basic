@@ -1,0 +1,20 @@
+.one{
+   /*  one의 공간: width + padding + border
+        margin은 one의 공간 밖의 영역 */
+    border: 2px solid blue;
+    padding: 20px; /* 나의 안쪽 공간 */
+    width: 200px;
+    margin: 20px; /* 나의 바깥쪽 공간 */
+    box-sizing: border-box; /* 넓이에 padding과 border를 포함시킴 */
+
+}
+.two{
+    padding: 20px;
+    margin: 30px; 
+   /*  margin은 위아래로 정렬할 때는 둘 중에 큰 값이 적용됨
+    (마진 겹침현상 , 병합현상) */
+    border: 1px solid pink;
+}
+.three{
+    border: 1px solid orange;
+}
